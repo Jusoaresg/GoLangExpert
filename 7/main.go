@@ -1,5 +1,6 @@
 package main
 
+//Maps
 import "fmt"
 
 func main() {

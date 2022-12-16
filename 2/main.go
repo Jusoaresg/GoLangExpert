@@ -1,5 +1,6 @@
 package main
 
+//Declaração e atribuição
 const a = "Hello, World1"
 
 // Escopo global da main

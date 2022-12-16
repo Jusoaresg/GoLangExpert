@@ -1,5 +1,6 @@
 package main
 
+//Funções variádicas
 import (
 	"fmt"
 )

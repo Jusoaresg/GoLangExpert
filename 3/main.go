@@ -1,5 +1,6 @@
 package main
 
+//Tipos
 const a = "Hello, World1"
 
 type ID int
