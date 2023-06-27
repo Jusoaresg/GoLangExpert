@@ -1,8 +1,6 @@
 package main
 
 import (
-	"fmt"
-
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -11,10 +9,11 @@ type Product struct {
 	ID    int `gorm:"primaryKey"`
 	Name  string
 	Price float64
+	gorm.Model
 }
 
 func main() {
-	dsn := "root:root@tcp(localhost:3306)/goexpert"
+	dsn := "root:root@tcp(localhost:3306)/goexpert?charset=utf8mb4&parseTime=True&loc=Local"
 	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(err)
@@ -47,7 +46,7 @@ func main() {
 		fmt.Println(product)
 	}*/
 
-	// Where
+	// Where (Pegar produto variavel especifica)
 	//var products []Product
 	//db.Where("Price > ?", 100).Find(&products)
 	//for _, product := range products {
@@ -61,15 +60,15 @@ func main() {
 	}*/
 
 	// Modify product
-	var p Product
-	db.First(&p, 17)
+	/*var p Product
+	db.First(&p, 1)
 	p.Name = "Notebook Gamer"
 	db.Save(&p)
-	fmt.Println(&p)
+	fmt.Println(&p)*/
 
 	// Delete product
-	var p2 Product
-	db.First(&p2, 17)
+	/*var p2 Product
+	db.First(&p2, 1)
 	fmt.Println(&p2.Name)
-	db.Delete(&p2)
+	db.Delete(&p2)*/
 }
