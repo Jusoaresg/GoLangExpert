@@ -7,6 +7,12 @@ import (
 	"gorm.io/gorm"
 )
 
+/*
+
+	Product BELONGS TO category
+
+*/
+
 type Category struct {
 	ID   int
 	Name string
