@@ -1,0 +1,6 @@
+github.com/Jusoaresg/GoLangExpert v0.0.0-20230709090805-ea94f7396666 h1:FSwU3aAYUgp6EXpwI28dgwiVLL9iTypH97jyeSiFc6Y=
+github.com/Jusoaresg/GoLangExpert v0.0.0-20230709090805-ea94f7396666/go.mod h1:wwXjzPvegbGLEjiwGJQvZMe1YIgCyVQUKp5w9ua/jEQ=
+github.com/Jusoaresg/GoLangExpert/5-Packaging/3/math v0.0.0-20230709090805-ea94f7396666 h1:p76hEjenTRWUElDSN1OcjD+VRGa7SBTIiOVYUyqDCvA=
+github.com/Jusoaresg/GoLangExpert/5-Packaging/3/math v0.0.0-20230709090805-ea94f7396666/go.mod h1:C4FBE7t+jBcx/Ve8WrAnPc9NE0N48EzUqgLM1UB+3iY=
+github.com/google/uuid v1.3.0 h1:t6JiXgmwXMjEs8VusXIJk2BXHsn+wx8BZdTaoZ5fu7I=
+github.com/google/uuid v1.3.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo=
