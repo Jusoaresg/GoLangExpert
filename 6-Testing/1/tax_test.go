@@ -48,6 +48,7 @@ func TestCalculateTaxBatch(t *testing.T) {
 	}
 }
 
+// O benchmark faz um teste de tempo e processo do teste
 // go test -bench=.
 // OU
 // go test -bench .
@@ -69,10 +70,10 @@ func BenchmarkCalculateTax2(b *testing.B) {
 	}
 }
 
+// O fuzz faz varios testes com numeros aleatorios de acordo com o que eu quero na seed
 // go test -fuzz=.
 // go test -fuzz=. -run^#
 // go test -fuzz=. -fuzztime=3s
-
 func FuzzCalculateTax(f *testing.F) {
 	seed := []float64{-1, -2, -3, 1, 2, 3, 1000.0, 1500.0, 2000.0}
 	for _, amount := range seed {
