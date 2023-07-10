@@ -47,3 +47,23 @@ func TestCalculateTaxBatch(t *testing.T) {
 		}
 	}
 }
+
+// go test -bench=.
+// OU
+// go test -bench .
+// Para rodar apenas o benchmark
+// go test -bench=. -run=^#
+// ^# é uma regular expression
+// -count=10
+// -benchtime=3s
+func BenchmarkCalculateTax(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		CalculateTax(500.0)
+	}
+}
+
+func BenchmarkCalculateTax2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		CalculateTax2(500.0)
+	}
+}
