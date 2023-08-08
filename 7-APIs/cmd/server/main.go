@@ -1,17 +1,20 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/Jusoaresg/GoLangExpert/7-APIs/configs"
 	"github.com/Jusoaresg/GoLangExpert/7-APIs/internal/entity"
 	"github.com/Jusoaresg/GoLangExpert/7-APIs/internal/infra/database"
 	"github.com/Jusoaresg/GoLangExpert/7-APIs/internal/infra/webserver/handlers"
+	"github.com/go-chi/chi"
+	"github.com/go-chi/chi/middleware"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
-	"net/http"
 )
 
 func main() {
-	_, err := configs.LoadConfig(".env")
+	_, err := configs.LoadConfig("./cmd/server")
 	if err != nil {
 		panic(err)
 	}
@@ -24,6 +27,13 @@ func main() {
 	productDB := database.NewProduct(db)
 	productHandler := handlers.NewProductHandler(productDB)
 
-	http.HandleFunc("/products", productHandler.CreateProduct)
-	http.ListenAndServe(":8000", nil)
+	r := chi.NewRouter()
+	r.Use(middleware.Logger)
+	r.Post("/products", productHandler.CreateProduct)
+	r.Get("/products", productHandler.GetProducts)
+	r.Get("/products/{id}", productHandler.GetProduct)
+	r.Put("/products/{id}", productHandler.UpdateProduct)
+	r.Delete("/products/{id}", productHandler.DeleteProduct)
+
+	http.ListenAndServe(":8000", r)
 }
