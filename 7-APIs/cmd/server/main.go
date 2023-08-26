@@ -5,16 +5,35 @@ import (
 	"net/http"
 
 	"github.com/Jusoaresg/GoLangExpert/7-APIs/configs"
+	_ "github.com/Jusoaresg/GoLangExpert/7-APIs/docs"
 	"github.com/Jusoaresg/GoLangExpert/7-APIs/internal/entity"
 	"github.com/Jusoaresg/GoLangExpert/7-APIs/internal/infra/database"
 	"github.com/Jusoaresg/GoLangExpert/7-APIs/internal/infra/webserver/handlers"
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/jwtauth"
+	httpSwagger "github.com/swaggo/http-swagger"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
+// @tittle Go Expert API Example
+// @version 1.0
+// @description Product API with authentication
+// @termsOfService http://swagger.io/terms/
+
+// @contact.name Juliano Gregorio
+// @contact.url https://www.linkedin.com/in/juliano-gregorio/
+// @contact.email julianosgreg@gmail.com
+
+// @license.name Full Cycle License
+// @license.url http://www.fullcycle.com.br
+
+// @host localhost:8000
+// @BasePath /
+// @securityDefinitions.apiKey ApiKeyAuth
+// @in header
+// @name Authorization
 func main() {
 	configs, err := configs.LoadConfig(".")
 	if err != nil {
@@ -51,6 +70,8 @@ func main() {
 
 	r.Post("/users", userHandler.CreateUser)
 	r.Post("/users/generate_token", userHandler.GetJWT)
+
+	r.Get("/docs/*", httpSwagger.Handler(httpSwagger.URL("http://localhost:8000/docs/doc.json")))
 
 	http.ListenAndServe(":8000", r)
 }
