@@ -1,4 +1,5 @@
 POST http://localhost:8000/products HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTMwNTUwOTEsInN1YiI6IjkzZmJmMWE3LTdkZjktNGQ1Ny1iYjIyLWQ5ZGI1NDIwMDJjZiJ9.NHgyH4h2VIky5XmY2ttFLoFuzG8WvGdIkamJLK5GOAM
 Content-Type: application/json
 
 {
@@ -6,9 +7,11 @@ Content-Type: application/json
   "price": 100
 }
 
+
 ###
 
 GET http://localhost:8000/products HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTMwNTc0NjYsInN1YiI6IjkzZmJmMWE3LTdkZjktNGQ1Ny1iYjIyLWQ5ZGI1NDIwMDJjZiJ9.XNmcBsPetjAZwkBDEWduvJPiGefEK0PLc0KtG3nfYSI
 
 ###
 
